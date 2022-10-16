@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
 import { NgxPermissionsService, NgxRolesService } from 'ngx-permissions';
+
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +16,9 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // const perm = ["EDITOR", "ADMIN"];
-    const perm = ["ADMIN"];
+    const perm = ["EDITOR", "ADMINS", "ADMININFO"];
+    this.rolesService.addRole("ADMIN", ["ADMININFO"]);
+    // const perm = ["ADMIN"];
     // const perm = ["ADMIN", "SECRET"];
     // const perm = ["EDITOR"];
 

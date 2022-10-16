@@ -1,24 +1,26 @@
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { BrowserModule } from '@angular/platform-browser';
-import { FirstComponent } from './first/first.component';
-import { NgModule } from '@angular/core';
 import { NgxPermissionsModule } from 'ngx-permissions';
-import { SecondComponent } from './second/second.component';
 
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AdminOnlyComponent } from './admin-only/admin-only.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { FirstComponent } from './first/first.component';
+import { SecondComponent } from './second/second.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstComponent,
-    SecondComponent
+    SecondComponent,
+    AdminOnlyComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgxPermissionsModule.forRoot()
   ],
-  exports: [NgxPermissionsModule],
   providers: [],
   bootstrap: [AppComponent]
 })

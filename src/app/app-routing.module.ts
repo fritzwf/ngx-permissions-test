@@ -1,13 +1,16 @@
+import { NgxPermissionsGuard } from 'ngx-permissions';
+
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
 import { AdminOnlyComponent } from './admin-only/admin-only.component';
 import { FirstComponent } from './first/first.component';
-import { NgModule } from '@angular/core';
-import { NgxPermissionsGuard } from 'ngx-permissions';
-import { RouterModule, Routes } from '@angular/router';
 import { SecondComponent } from './second/second.component';
 
 const routes: Routes = [
-  { path: 'first-component', 
-    title: 'Home Page', 
+  {
+    path: 'first-component',
+    title: 'Home Page',
     component: FirstComponent
   },
   { path: 'second-component',
@@ -18,10 +21,11 @@ const routes: Routes = [
       permissions: {
         only: ['EDITOR'],
        }
-    }    
+    }
   },
-  { path: 'admin-only-component', 
-    title: 'Admin Only Page', 
+  {
+    path: 'admin-only-component',
+    title: 'Admin Only Page',
     component: AdminOnlyComponent,
     canActivate: [NgxPermissionsGuard],
     data: {
@@ -29,7 +33,7 @@ const routes: Routes = [
         only: ['ADMIN'],
        }
     }
-  },  
+  },
   { path: '', // Home page
     component: FirstComponent
   },
